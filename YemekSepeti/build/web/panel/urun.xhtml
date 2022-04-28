@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>urun</title>
+    </head>
+    <h:body>
+        <h:form>
+           <h:commandButton action="/panel/kategoriler" value="kategori" />
+            <h:commandButton action="/panel/musteri" value="musteriler" />
+            <h:commandButton action="/panel/sepeteEkle" value="sepeteEkle" />
+            <h:commandButton action="/panel/stok" value="stok" />
+            <h:commandButton action="/panel/urun" value="urun" />
+            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
+            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
+           
+        </h:form> 
+        <br></br>
+        <h:form>
+            <h:dataTable border="1" value="#{urunController.getUrunler()}" var="urun">
+                <h:column>
+                    <f:facet name="header"> urun ID</f:facet>
+                    <h:outputText value="#{urun.urunid}"/>  
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> urun Adı</f:facet>
+                    <h:outputText value="#{urun.urunad}"/>  
+                </h:column>
+                  <h:column>
+                    <f:facet name="header"> urun fiyat</f:facet>
+                    <h:outputText value="#{urun.Soyad}"/>  
+                </h:column>
+                  <h:column>
+                    <f:facet name="header"> urun kategori</f:facet>
+                    <h:outputText value="#{urun.kategoriid}"/>  
+                </h:column>
+                
+              <h:column>
+                    <f:facet name="header">YONET</f:facet>
+                    <h:commandButton action="#{urunController.delete(urun)}" value="Sil" />
+                    <h:commandButton action="#{urunController.setMusteri(urun)}" value="Düzenle" />
+                </h:column>
+
+            </h:dataTable> 
+        </h:form>
+        <br></br>
+        <h:form>
+            urun Adı <h:inputText value="#{urunController.urun.urunAdi}" />
+            <h:commandButton rendered="#{urunController.urun.urunID==0}" action="#{urunController.create()}" value="Create"  />
+            <h:commandButton rendered="#{urunController.urun.urunID!=0}" action="#{urunController.update()}" value="Update" />
+        </h:form>
+    </h:body>
+</html>
+

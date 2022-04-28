@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>stok</title>
+    </head>
+    <h:body>
+        <h:form>
+         <h:commandButton action="/panel/kategoriler" value="kategori" />
+            <h:commandButton action="/panel/musteri" value="musteriler" />
+            <h:commandButton action="/panel/sepeteEkle" value="sepeteEkle" />
+            <h:commandButton action="/panel/stok" value="stok" />
+            <h:commandButton action="/panel/urun" value="urun" />
+            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
+            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
+           
+        </h:form> 
+        <br></br>
+        <h:form>
+            <h:dataTable border="1" value="#{stokController.getStoklar()}" var="stok">
+                <h:column>
+                    <f:facet name="header"> stok ID</f:facet>
+                    <h:outputText value="#{stok.sid}"/>  
+                </h:column>
+                
+                  <h:column>
+                    <f:facet name="header"> stok adet</f:facet>
+                    <h:outputText value="#{stok.adet}"/>  
+                </h:column>
+                  
+                
+              
+              <h:column>
+                    <f:facet name="header">YONET</f:facet>
+                    <h:commandButton action="#{stokController.delete(stok)}" value="Sil" />
+                    <h:commandButton action="#{stokController.setstok(stok)}" value="Düzenle" />
+                </h:column>
+
+            </h:dataTable> 
+        </h:form>
+        <br></br>
+     <h:form>
+           stok Adı <h:inputText value="#{stokController.stok.stokAdi}" />
+            <h:commandButton rendered="#{stokController.stok.stokID==0}" action="#{stokController.create()}" value="Create"  />
+            <h:commandButton rendered="#{stokController.stok.stokID!=0}" action="#{stokController.update()}" value="Update" />
+       
+    </h:form>
+    </h:body>
+</html>

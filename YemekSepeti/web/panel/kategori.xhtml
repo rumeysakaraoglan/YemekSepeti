@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Kategori</title>
+    </head>
+    <h:body>
+        <h:form>
+             <h:commandButton action="/panel/kategoriler" value="kategori" />
+            <h:commandButton action="/panel/musteri" value="musteriler" />
+            <h:commandButton action="/panel/sepeteEkle" value="sepeteEkle" />
+            <h:commandButton action="/panel/stok" value="stok" />
+            <h:commandButton action="/panel/urun" value="urun" />
+            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
+            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
+           
+        </h:form> 
+        <br></br>
+        <h:form>
+            <h:dataTable border="1" value="#{kategorilerController.getKategoriler()}" var="kategori">
+                <h:column>
+                    <f:facet name="header"> kategori ID</f:facet>
+                    <h:outputText value="#{kategori.kategoriID}"/>  
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> Kategori Adı</f:facet>
+                    <h:outputText value="#{kategori.kategoriAdi}"/>  
+                </h:column>
+                
+
+              <h:column>
+                    <f:facet name="header">YONET</f:facet>
+                    <h:commandButton action="#{KategoriController.delete(kategori)}" value="Sil" />
+                    <h:commandButton action="#{KategoriController.setKategori(kategori)}" value="Düzenle" />
+                </h:column>
+
+            </h:dataTable> 
+        </h:form>
+        <br></br>
+        <h:form>
+            Kategory Adı <h:inputText value="#{kategorilerController.kategori.kategoriAdi}" />
+            <h:commandButton rendered="#{kategorilerController.kategori.kategoriID==0}" action="#{kategorilerController.create()}" value="Create"  />
+            <h:commandButton rendered="#{kategorilerController.kategori.kategoriID!=0}" action="#{kategorilerController.update()}" value="Update" />
+        </h:form>
+    </h:body>
+</html>

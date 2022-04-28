@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>urun_musteri</title>
+    </head>
+    <h:body>
+        <h:form>
+          
+       <h:commandButton action="/panel/kategoriler" value="kategori" />
+            <h:commandButton action="/panel/musteri" value="musteriler" />
+            <h:commandButton action="/panel/sepeteEkle" value="sepeteEkle" />
+            <h:commandButton action="/panel/stok" value="stok" />
+            <h:commandButton action="/panel/urun" value="urun" />
+            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
+            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
+           
+        </h:form> 
+        <br></br>
+        <h:form>
+            <h:dataTable border="1" value="#{urun_musteriController.getUrun_musteriler()}" var="stok">
+                <h:column>
+                    <f:facet name="header"> urun_musteri ID</f:facet>
+                    <h:outputText value="#{urun_musteri.spid}"/>  
+                </h:column>
+                
+                  <h:column>
+                    <f:facet name="header"> urun_musteri takipno</f:facet>
+                    <h:outputText value="#{urun_musteri.takipno}"/>  
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> urun_musteri tutar</f:facet>
+                    <h:outputText value="#{urun_musteri.tutar}"/>  
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> urun_musteri tarih</f:facet>
+                    <h:outputText value="#{urun_musteri.tarih}"/>  
+                </h:column>
+                  
+                
+              
+              <h:column>
+                    <f:facet name="header">YONET</f:facet>
+                    <h:commandButton action="#{urun_musteriController.delete(urun_musteri)}" value="Sil" />
+                    <h:commandButton action="#{urun_musteriController.seturun_musteri(urun_musteri)}" value="Düzenle" />
+                </h:column>
+
+            </h:dataTable> 
+        </h:form>
+        <br></br>
+     <h:form>
+           urun_musteri Adı <h:inputText value="#{urun_musteriController.urun_musteri.urun_musteriAdi}" />
+            <h:commandButton rendered="#{urun_musteriController.urun_musteri.urun_kategoriID==0}" action="#{urun_musteriController.create()}" value="Create"  />
+            <h:commandButton rendered="#{urun_musteriController.urun_musteri.urun_kategoriID!=0}" action="#{urun_musteriController.update()}" value="Update" />
+       
+    </h:form>
+    </h:body>
+</html>
+

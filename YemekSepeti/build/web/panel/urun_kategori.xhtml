@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>urun_kategori</title>
+    </head>
+    <h:body>
+        <h:form>
+          
+        <h:commandButton action="/panel/kategoriler" value="kategori" />
+            <h:commandButton action="/panel/musteri" value="musteriler" />
+            <h:commandButton action="/panel/sepeteEkle" value="sepeteEkle" />
+            <h:commandButton action="/panel/stok" value="stok" />
+            <h:commandButton action="/panel/urun" value="urun" />
+            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
+            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
+            
+        </h:form> 
+        <br></br>
+        <h:form>
+            <h:dataTable border="1" value="#{urun_kategoriController.getUrun_kategoriler()}" var="stok">
+                <h:column>
+                    <f:facet name="header"> urun_kategori ID</f:facet>
+                    <h:outputText value="#{urun_kategori.kid}"/>  
+                </h:column>
+                
+                  <h:column>
+                    <f:facet name="header"> urun_kategori adet</f:facet>
+                    <h:outputText value="#{urun_kategori.urunid}"/>  
+                </h:column>
+                  
+                
+              
+              <h:column>
+                    <f:facet name="header">YONET</f:facet>
+                    <h:commandButton action="#{urun_kategoriController.delete(urun_kategori)}" value="Sil" />
+                    <h:commandButton action="#{urun_kategoriController.seturun_kategori(urun_kategori)}" value="Düzenle" />
+                </h:column>
+
+            </h:dataTable> 
+        </h:form>
+        <br></br>
+     <h:form>
+           urun_kategori Adı <h:inputText value="#{urun_kategoriController.urun_kategori.urun_kategoriAdi}" />
+            <h:commandButton rendered="#{urun_kategoriController.urun_kategori.urun_kategoriID==0}" action="#{urun_kategoriController.create()}" value="Create"  />
+            <h:commandButton rendered="#{urun_kategoriController.urun_kategori.urun_kategoriID!=0}" action="#{urun_kategoriController.update()}" value="Update" />
+       
+    </h:form>
+    </h:body>
+</html>

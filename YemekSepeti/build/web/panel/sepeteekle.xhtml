@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>sepeteekle</title>
+    </head>
+    <h:body>
+        <h:form>
+             <h:commandButton action="/panel/kategoriler" value="kategori" />
+            <h:commandButton action="/panel/musteri" value="musteriler" />
+            <h:commandButton action="/panel/sepeteekle" value="sepeteekle" />
+            <h:commandButton action="/panel/stok" value="stok" />
+            <h:commandButton action="/panel/urun" value="urun" />
+            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
+            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
+            
+           
+        </h:form> 
+        <br></br>
+        <h:form>
+            <h:dataTable border="1" value="#{sepeteekleController.getSepeteEklenen()}" var="sepeteekle">
+                <h:column>
+                    <f:facet name="header"> sepeteekle ID</f:facet>
+                    <h:outputText value="#{sepeteekle.sid}"/>  
+                </h:column>
+                
+                  <h:column>
+                    <f:facet name="header"> sepeteekle adet</f:facet>
+                    <h:outputText value="#{sepeteekle.adet}"/>  
+                </h:column>
+                  
+                
+              
+              <h:column>
+                    <f:facet name="header">YONET</f:facet>
+                    <h:commandButton action="#{sepeteEkleController.sepeteekle(sepeteekle)}" value="Sil" />
+                    <h:commandButton action="#{sepeteEkleController.setsepeteekle(sepeteekle)}" value="Düzenle" />
+                </h:column>
+
+            </h:dataTable> 
+        </h:form>
+        <br></br>
+     <h:form>
+           sepeteekle Adı <h:inputText value="#{sepeteekleController.sepeteekle.sepetid}" />
+            <h:commandButton rendered="#{sepeteEkleController.sepeteekle.sepetid==0}" action="#{sepeteEkleCosintroller.create()}" value="Create"  />
+            <h:commandButton rendered="#{sepeteEkleController.sepeteekle.sepetid!=0}" action="#{sepeteEkleController.update()}" value="Update" />
+       
+    </h:form>
+    </h:body>
+</html>
