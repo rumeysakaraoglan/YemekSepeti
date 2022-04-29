@@ -6,37 +6,47 @@
     </head>
     <h:body>
         <h:form>
-            <h:commandButton action="/panel/kategoriler" value="kategori" />
-            <h:commandButton action="/panel/musteri" value="musteriler" />
-            <h:commandButton action="/panel/sepeteEkle" value="sepeteEkle" />
-            <h:commandButton action="/panel/stok" value="stok" />
-            <h:commandButton action="/panel/urun" value="urun" />
-            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
-            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
+             <h:commandButton action="/panel/kategori" value="KATEGORİ" />
+            <h:commandButton action="/panel/musteriler" value="MUSTERİLER" />
+            <h:commandButton action="/panel/sepeteekle" value="SEPET EKLE" />
+            <h:commandButton action="/panel/stok" value="STOK" />
+            <h:commandButton action="/panel/urun" value="URUN" />
+            <h:commandButton action="/panel/urun_kategori" value="ÜRÜN KATEGORİ" />
+            <h:commandButton action="/panel/urun_musteri" value="ÜRÜN MÜŞTERİ" />
+
             
            
         </h:form> 
         <br></br>
         <h:form>
+            MUSTERİ ADI <h:inputText value="#{musterilerController.musteriler.ad}" />
+            MUSTERİ SOYADI <h:inputText value="#{musterilerController.musteriler.soyad}" />
+            MUSTERİ ADRES <h:inputText value="#{musterilerController.musteriler.adres}" />
+            MUSTERİ TELEFON <h:inputText value="#{musterilerController.musteriler.tel}" />
+            <h:commandButton rendered="#{musterilerlerController.musteriler.mid==0}" action="#{musterilerController.create()}" value="Create"  />
+            <h:commandButton rendered="#{musterilerController.musteriler.musterilerID!=0}" action="#{musterilerController.update()}" value="Update" />
+        </h:form>
+        <br></br>
+        <h:form>
             <h:dataTable border="1" value="#{musterilerController.getMusteriler()}" var="musteriler">
                 <h:column>
-                    <f:facet name="header"> musteri ID</f:facet>
+                    <f:facet name="header"> MUSTERİ ID</f:facet>
                     <h:outputText value="#{musteriler.mid}"/>  
                 </h:column>
                 <h:column>
-                    <f:facet name="header"> Musteri Adı</f:facet>
+                    <f:facet name="header"> MUSTERİ ADI</f:facet>
                     <h:outputText value="#{musteriler.Ad}"/>  
                 </h:column>
                   <h:column>
-                    <f:facet name="header"> Musteri Soyad</f:facet>
+                    <f:facet name="header"> MUSTERİ SOYAD</f:facet>
                     <h:outputText value="#{musteriler.Soyad}"/>  
                 </h:column>
                   <h:column>
-                    <f:facet name="header"> Musteri Adres</f:facet>
+                    <f:facet name="header"> MUSTERİ ADRES</f:facet>
                     <h:outputText value="#{musteriler.Adres}"/>  
                 </h:column>
                   <h:column>
-                    <f:facet name="header"> Musteri Tel</f:facet>
+                    <f:facet name="header"> MUSTERİ TELEFON</f:facet>
                     <h:outputText value="#{musteriler.tel}"/>  
                 </h:column>
                 
@@ -50,10 +60,6 @@
             </h:dataTable> 
         </h:form>
         <br></br>
-        <h:form>
-            Musteriler Adı <h:inputText value="#{musterilerController.musteriler.musterilerAdi}" />
-            <h:commandButton rendered="#{musterilerlerController.musterileri.musterilerID==0}" action="#{musterilerController.create()}" value="Create"  />
-            <h:commandButton rendered="#{musterilerController.musteriler.musterilerID!=0}" action="#{musterilerController.update()}" value="Update" />
-        </h:form>
+        
     </h:body>
 </html>

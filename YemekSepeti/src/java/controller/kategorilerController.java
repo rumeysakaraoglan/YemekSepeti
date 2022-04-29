@@ -25,7 +25,9 @@ public class kategorilerController implements Serializable{
     private kategoriler kategoriler;
 
     public List<kategoriler> getKategori() {
-        return kategori;
+        System.out.println("line 28 controller");
+        kategorilerDao = new kategorilerDao();
+        return kategorilerDao.list();
     }
 
     public void setKategori(List<kategoriler> kategori) {

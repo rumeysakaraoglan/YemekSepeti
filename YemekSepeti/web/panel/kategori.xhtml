@@ -8,41 +8,40 @@
     </head>
     <h:body>
         <h:form>
-             <h:commandButton action="/panel/kategoriler" value="kategori" />
-            <h:commandButton action="/panel/musteri" value="musteriler" />
-            <h:commandButton action="/panel/sepeteEkle" value="sepeteEkle" />
-            <h:commandButton action="/panel/stok" value="stok" />
-            <h:commandButton action="/panel/urun" value="urun" />
-            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
-            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
-           
+            <h:commandButton action="/panel/kategori" value="KATEGORİ" />
+            <h:commandButton action="/panel/musteriler" value="MUSTERİLER" />
+            <h:commandButton action="/panel/sepeteekle" value="SEPET EKLE" />
+            <h:commandButton action="/panel/stok" value="STOK" />
+            <h:commandButton action="/panel/urun" value="URUN" />
+            <h:commandButton action="/panel/urun_kategori" value="ÜRÜN KATEGORİ" />
+            <h:commandButton action="/panel/urun_musteri" value="ÜRÜN MÜŞTERİ" />
         </h:form> 
         <br></br>
         <h:form>
-            <h:dataTable border="1" value="#{kategorilerController.getKategoriler()}" var="kategori">
+            <h:dataTable border="1" value="#{kategorilerController.getKategori()}" var="kategori">
                 <h:column>
-                    <f:facet name="header"> kategori ID</f:facet>
-                    <h:outputText value="#{kategori.kategoriID}"/>  
+                    <f:facet name="header"> KATEGORİ ID</f:facet>
+                    <h:outputText value="#{kategori.kid}"/>  
                 </h:column>
                 <h:column>
-                    <f:facet name="header"> Kategori Adı</f:facet>
-                    <h:outputText value="#{kategori.kategoriAdi}"/>  
+                    <f:facet name="header"> KATEGORİ ADI</f:facet>
+                    <h:outputText value="#{kategori.kategoriad}"/>  
                 </h:column>
-                
 
-              <h:column>
+
+                <h:column>
                     <f:facet name="header">YONET</f:facet>
-                    <h:commandButton action="#{KategoriController.delete(kategori)}" value="Sil" />
-                    <h:commandButton action="#{KategoriController.setKategori(kategori)}" value="Düzenle" />
+                    <h:commandButton action="#{kategorilerController.delete(kategori)}" value="Sil" />
+                    <h:commandButton action="#{kategorilerController.update()}" value="Düzenle" />
                 </h:column>
 
             </h:dataTable> 
         </h:form>
         <br></br>
         <h:form>
-            Kategory Adı <h:inputText value="#{kategorilerController.kategori.kategoriAdi}" />
-            <h:commandButton rendered="#{kategorilerController.kategori.kategoriID==0}" action="#{kategorilerController.create()}" value="Create"  />
-            <h:commandButton rendered="#{kategorilerController.kategori.kategoriID!=0}" action="#{kategorilerController.update()}" value="Update" />
+            KATEGORİ ADI <h:inputText value="#{kategorilerController.kategoriler.kategoriad}" />
+            <h:commandButton rendered="#{kategorilerController.kategoriler.kid==0}" action="#{kategorilerController.create()}" value="Create"  />
+            <h:commandButton rendered="#{kategorilerController.kategoriler.kid!=0}" action="#{kategorilerController.update()}" value="Update" />
         </h:form>
     </h:body>
 </html>

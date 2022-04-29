@@ -6,15 +6,15 @@
     </head>
     <h:body>
         <h:form>
-          
-        <h:commandButton action="/panel/kategoriler" value="kategori" />
-            <h:commandButton action="/panel/musteri" value="musteriler" />
-            <h:commandButton action="/panel/sepeteEkle" value="sepeteEkle" />
-            <h:commandButton action="/panel/stok" value="stok" />
-            <h:commandButton action="/panel/urun" value="urun" />
-            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
-            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
-            
+
+            <h:commandButton action="/panel/kategori" value="KATEGORİ" />
+            <h:commandButton action="/panel/musteriler" value="MUSTERİLER" />
+            <h:commandButton action="/panel/sepeteekle" value="SEPET EKLE" />
+            <h:commandButton action="/panel/stok" value="STOK" />
+            <h:commandButton action="/panel/urun" value="URUN" />
+            <h:commandButton action="/panel/urun_kategori" value="ÜRÜN KATEGORİ" />
+            <h:commandButton action="/panel/urun_musteri" value="ÜRÜN MÜŞTERİ" />
+
         </h:form> 
         <br></br>
         <h:form>
@@ -23,15 +23,15 @@
                     <f:facet name="header"> urun_kategori ID</f:facet>
                     <h:outputText value="#{urun_kategori.kid}"/>  
                 </h:column>
-                
-                  <h:column>
+
+                <h:column>
                     <f:facet name="header"> urun_kategori adet</f:facet>
                     <h:outputText value="#{urun_kategori.urunid}"/>  
                 </h:column>
-                  
-                
-              
-              <h:column>
+
+
+
+                <h:column>
                     <f:facet name="header">YONET</f:facet>
                     <h:commandButton action="#{urun_kategoriController.delete(urun_kategori)}" value="Sil" />
                     <h:commandButton action="#{urun_kategoriController.seturun_kategori(urun_kategori)}" value="Düzenle" />
@@ -40,11 +40,11 @@
             </h:dataTable> 
         </h:form>
         <br></br>
-     <h:form>
-           urun_kategori Adı <h:inputText value="#{urun_kategoriController.urun_kategori.urun_kategoriAdi}" />
+        <h:form>
+            urun_kategori Adı <h:inputText value="#{urun_kategoriController.urun_kategori.urun_kategoriAdi}" />
             <h:commandButton rendered="#{urun_kategoriController.urun_kategori.urun_kategoriID==0}" action="#{urun_kategoriController.create()}" value="Create"  />
             <h:commandButton rendered="#{urun_kategoriController.urun_kategori.urun_kategoriID!=0}" action="#{urun_kategoriController.update()}" value="Update" />
-       
-    </h:form>
+
+        </h:form>
     </h:body>
 </html>

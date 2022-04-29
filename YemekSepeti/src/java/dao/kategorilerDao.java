@@ -17,14 +17,17 @@ import util.DbConnection;
  * @author karao
  */
 public class kategorilerDao extends DbConnection {
+    
      public List<kategoriler> list(){
+         System.out.println("line 22 dao");
         List<kategoriler> list = new ArrayList<>();
        
     
       try{
             Connection c = this.connect();
             Statement state = c.createStatement();
-            String sorgu = "SELECT * from kategoriler order by kid";
+            String sorgu = "SELECT * from kategori order by kid";
+            System.out.println("testting dao liine 28");
             ResultSet  result = state.executeQuery(sorgu);
             while(result.next()){
             list.add(new kategoriler(
@@ -34,6 +37,7 @@ public class kategorilerDao extends DbConnection {
             ));
          }
         }catch (Exception e) {
+            System.out.println("testing dao");
             System.out.println(e.getMessage());
         }
 
@@ -44,7 +48,7 @@ public class kategorilerDao extends DbConnection {
         try{
             Connection c = this.connect();
             Statement st = c.createStatement();
-            String sql = "delete from kategoriler where kid = "+kategoriler.getkategorilerAd();
+            String sql = "delete from kategori where kid = "+kategoriler.getKid();
             
 
             st.executeUpdate(sql);
@@ -59,7 +63,7 @@ public class kategorilerDao extends DbConnection {
         try{
             Connection c = this.connect();
             Statement st = c.createStatement();
-            String sorgu = "insert into kategori (kategoriad) values ('"+kategoriler.getkid()+"')";
+            String sorgu = "insert into kategori (kategoriad) values ('"+kategoriler.getKid()+"')";
             
 
             st.executeUpdate(sorgu);
@@ -75,7 +79,7 @@ public class kategorilerDao extends DbConnection {
         try{
             Connection c = this.connect();
             Statement st = c.createStatement();
-            String sorgu = "update kategoriler set kategoriAd = '"+kategoriler.getkategoriAd()+"' where kid = '"+kategoriler.getkid()+"'";
+            String sorgu = "update kategori set kategoriAd = '"+kategoriler.getKategoriad()+"' where kid = '"+kategoriler.getKid()+"'";
             
 
             st.executeUpdate(sorgu);

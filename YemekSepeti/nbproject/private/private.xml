@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/ademtarhan/Developer/Yemeksepeti/YemekSepeti/src/java/dao/kategorilerDao.java</file>
+            <file>file:/Users/ademtarhan/Developer/Yemeksepeti/YemekSepeti/src/java/controller/musterilerController.java</file>
+            <file>file:/Users/ademtarhan/Developer/Yemeksepeti/YemekSepeti/src/java/entity/musteriler.java</file>
+            <file>file:/Users/ademtarhan/Developer/Yemeksepeti/YemekSepeti/src/java/dao/musterilerDao.java</file>
+            <file>file:/Users/ademtarhan/Developer/Yemeksepeti/YemekSepeti/src/java/entity/kategoriler.java</file>
+            <file>file:/Users/ademtarhan/Developer/Yemeksepeti/YemekSepeti/web/panel/musteriler.xhtml</file>
+            <file>file:/Users/ademtarhan/Developer/Yemeksepeti/YemekSepeti/src/java/util/DbConnection.java</file>
+        </group>
     </open-files>
 </project-private>

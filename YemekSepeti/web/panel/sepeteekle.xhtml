@@ -6,13 +6,13 @@
     </head>
     <h:body>
         <h:form>
-             <h:commandButton action="/panel/kategoriler" value="kategori" />
-            <h:commandButton action="/panel/musteri" value="musteriler" />
-            <h:commandButton action="/panel/sepeteekle" value="sepeteekle" />
-            <h:commandButton action="/panel/stok" value="stok" />
-            <h:commandButton action="/panel/urun" value="urun" />
-            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
-            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
+            <h:commandButton action="/panel/kategori" value="KATEGORİ" />
+            <h:commandButton action="/panel/musteriler" value="MUSTERİLER" />
+            <h:commandButton action="/panel/sepeteekle" value="SEPET EKLE" />
+            <h:commandButton action="/panel/stok" value="STOK" />
+            <h:commandButton action="/panel/urun" value="URUN" />
+            <h:commandButton action="/panel/urun_kategori" value="ÜRÜN KATEGORİ" />
+            <h:commandButton action="/panel/urun_musteri" value="ÜRÜN MÜŞTERİ" />
             
            
         </h:form> 
@@ -20,12 +20,12 @@
         <h:form>
             <h:dataTable border="1" value="#{sepeteekleController.getSepeteEklenen()}" var="sepeteekle">
                 <h:column>
-                    <f:facet name="header"> sepeteekle ID</f:facet>
+                    <f:facet name="header"> Sepet ID</f:facet>
                     <h:outputText value="#{sepeteekle.sid}"/>  
                 </h:column>
                 
                   <h:column>
-                    <f:facet name="header"> sepeteekle adet</f:facet>
+                    <f:facet name="header"> Sepet Adet</f:facet>
                     <h:outputText value="#{sepeteekle.adet}"/>  
                 </h:column>
                   
@@ -41,9 +41,9 @@
         </h:form>
         <br></br>
      <h:form>
-           sepeteekle Adı <h:inputText value="#{sepeteekleController.sepeteekle.sepetid}" />
-            <h:commandButton rendered="#{sepeteEkleController.sepeteekle.sepetid==0}" action="#{sepeteEkleCosintroller.create()}" value="Create"  />
-            <h:commandButton rendered="#{sepeteEkleController.sepeteekle.sepetid!=0}" action="#{sepeteEkleController.update()}" value="Update" />
+           sepeteekle Adı <h:inputText value="#{sepeteekleController.sepeteEkle.mid}" />
+            <h:commandButton rendered="#{sepeteEkleController.sepeteEkle.sepetid==0}" action="#{sepeteEkleCosintroller.create()}" value="Create"  />
+            <h:commandButton rendered="#{sepeteEkleController.sepeteEkle.sepetid!=0}" action="#{sepeteEkleController.update()}" value="Update" />
        
     </h:form>
     </h:body>

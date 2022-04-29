@@ -6,15 +6,15 @@
     </head>
     <h:body>
         <h:form>
-          
-       <h:commandButton action="/panel/kategoriler" value="kategori" />
-            <h:commandButton action="/panel/musteri" value="musteriler" />
-            <h:commandButton action="/panel/sepeteEkle" value="sepeteEkle" />
-            <h:commandButton action="/panel/stok" value="stok" />
-            <h:commandButton action="/panel/urun" value="urun" />
-            <h:commandButton action="/panel/urun_kategori" value="urun_kategori" />
-            <h:commandButton action="/panel/urun_musteri" value="urun_musteri" />
-           
+
+            <h:commandButton action="/panel/kategori" value="KATEGORİ" />
+            <h:commandButton action="/panel/musteriler" value="MUSTERİLER" />
+            <h:commandButton action="/panel/sepeteekle" value="SEPET EKLE" />
+            <h:commandButton action="/panel/stok" value="STOK" />
+            <h:commandButton action="/panel/urun" value="URUN" />
+            <h:commandButton action="/panel/urun_kategori" value="ÜRÜN KATEGORİ" />
+            <h:commandButton action="/panel/urun_musteri" value="ÜRÜN MÜŞTERİ" />
+
         </h:form> 
         <br></br>
         <h:form>
@@ -23,8 +23,8 @@
                     <f:facet name="header"> urun_musteri ID</f:facet>
                     <h:outputText value="#{urun_musteri.spid}"/>  
                 </h:column>
-                
-                  <h:column>
+
+                <h:column>
                     <f:facet name="header"> urun_musteri takipno</f:facet>
                     <h:outputText value="#{urun_musteri.takipno}"/>  
                 </h:column>
@@ -36,10 +36,10 @@
                     <f:facet name="header"> urun_musteri tarih</f:facet>
                     <h:outputText value="#{urun_musteri.tarih}"/>  
                 </h:column>
-                  
-                
-              
-              <h:column>
+
+
+
+                <h:column>
                     <f:facet name="header">YONET</f:facet>
                     <h:commandButton action="#{urun_musteriController.delete(urun_musteri)}" value="Sil" />
                     <h:commandButton action="#{urun_musteriController.seturun_musteri(urun_musteri)}" value="Düzenle" />
@@ -48,12 +48,12 @@
             </h:dataTable> 
         </h:form>
         <br></br>
-     <h:form>
-           urun_musteri Adı <h:inputText value="#{urun_musteriController.urun_musteri.urun_musteriAdi}" />
+        <h:form>
+            urun_musteri Adı <h:inputText value="#{urun_musteriController.urun_musteri.urun_musteriAdi}" />
             <h:commandButton rendered="#{urun_musteriController.urun_musteri.urun_kategoriID==0}" action="#{urun_musteriController.create()}" value="Create"  />
             <h:commandButton rendered="#{urun_musteriController.urun_musteri.urun_kategoriID!=0}" action="#{urun_musteriController.update()}" value="Update" />
-       
-    </h:form>
+
+        </h:form>
     </h:body>
 </html>
 

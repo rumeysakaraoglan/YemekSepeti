@@ -12,18 +12,21 @@ import java.util.Objects;
  * @author karao
  */
 public class kategoriler {
-      private int kid;
+
+    private int kid;
     private String kategoriad;
     private Date guncellemeTarihi;
-    
-     public kategoriler(int kid, String kategoriid, Date guncellemeTarihi) {
+
+    public kategoriler(int kid, String kategoriad, Date guncellemeTarihi) {
         this.kid = kid;
         this.kategoriad = kategoriad;
         this.guncellemeTarihi = guncellemeTarihi;
+
+    }
     
-}
 
     public kategoriler() {
+        
     }
 
     public int getKid() {
@@ -50,20 +53,5 @@ public class kategoriler {
         this.guncellemeTarihi = guncellemeTarihi;
     }
 
-    public String getkategorilerAd() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
-    public String getkid() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public String getkategoriAd() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-   
-  
-
-    
 }
